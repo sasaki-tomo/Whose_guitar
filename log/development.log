@@ -1,0 +1,98 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (39.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to DeviseCreateUsers (20201209012028)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201209012028_devise_create_users.rb:5
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  ↳ db/migrate/20201209012028_devise_create_users.rb:39
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  ↳ db/migrate/20201209012028_devise_create_users.rb:40
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201209012028"]]
+  ↳ bin/rails:9
+  [1m[35m (6.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateGuitars (20201209043937)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "guitars" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "title" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201209043937_create_guitars.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201209043937"]]
+  ↳ bin/rails:9
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddIntroductionToUsers (20201209055820)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "introduction" varchar[0m
+  ↳ db/migrate/20201209055820_add_introduction_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201209055820"]]
+  ↳ bin/rails:9
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to AddProfileImageIdToUsers (20201209060428)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "profile_image_id" varchar[0m
+  ↳ db/migrate/20201209060428_add_profile_image_id_to_users.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201209060428"]]
+  ↳ bin/rails:9
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateGuitarComments (20201211160720)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "guitar_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "guitar_id" integer, "comment" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201211160720_create_guitar_comments.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201211160720"]]
+  ↳ bin/rails:9
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateFavorites (20201211160923)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "guitar_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20201211160923_create_favorites.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201211160923"]]
+  ↳ bin/rails:9
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-13 08:44:31.881090"], ["updated_at", "2020-12-13 08:44:31.881090"]]
+  ↳ bin/rails:9
+  [1m[35m (4.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 126.126.232.22 at 2020-12-13 08:45:07 +0000
+Cannot render console from 126.126.232.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/ec2-user/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (3.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 3652ms (Views: 3639.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 126.126.232.22 at 2020-12-13 08:45:13 +0000
+Cannot render console from 126.126.232.22! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by HomesController#top as HTML
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 40ms (Views: 39.4ms | ActiveRecord: 0.0ms)
+
+
