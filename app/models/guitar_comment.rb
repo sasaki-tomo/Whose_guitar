@@ -1,4 +1,4 @@
-class BookComment < ApplicationRecord
+class GuitarComment < ApplicationRecord
 	belongs_to :user
 	belongs_to :guitar
 

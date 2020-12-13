@@ -21,18 +21,18 @@
 					</td>
 					<td><%= link_to @guitar.title, guitar_path(@guitar) %></td>
 					<td><%= @guitar.body %></td>
-	
-	        
-               <%= render 'guitars/favorites', guitar: @guitar %>
-               
+
+
+               <%= render partial: 'guitars/favorites', locals:{ guitar: @guitar, guitar_comment: @guitar_comment } %>
+
              <td>
               <div class="comment-count">コメント数：<%= @guitar.guitar_comments.count %></div>
-            </div>    
+            </div>
             </td>
-            
-            
-              
-        
+
+
+
+
 
 	               <% if @guitar.user_id == current_user.id %>
 					 <td><%= link_to "Edit", edit_guitar_path(@guitar), class: "btn-sm btn-success edit_guitar_#{@guitar.id}" %></td>
@@ -40,9 +40,9 @@
 			       <% end %>
 				</tr>
 		</table>
-		
+
 	<%= render 'guitars/comments', guitar: @guitar, guitar_comment: @guitar_comment %>
-		
+
 	</div>
 </div>
 </div>

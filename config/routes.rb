@@ -7,7 +7,7 @@ Rails.application.routes.draw do
  
   resources :guitars do
      resource :favorites, only: [:create, :destroy]
-     resources :_comments, only: [:create, :destroy]
+     resources :guitar_comments, only: [:create, :destroy]
   end
 
 end

@@ -1,5 +1,5 @@
 <div class="comment-list bt style-2" id="comments">
-            
+
 <ol>
   <% guitar.guitar_comments.each do |guitar_comment| %>
     <li class="comment">
@@ -28,20 +28,20 @@
     </li>
   <% end %>
 </ol>
-          </div>
-          <hr>
+</div>
+<hr>
 
-          <!-- comment section -->
-          <div class="section-title-wrapper style-1 v1 mt-30" id="divAddComment">
-            <h3 class="section-title left">
-              <span>コメント</span>
-            </h3>
-          </div>
-          <%= form_with(model:[guitar, guitar_comment], local: true) do |f| %>
-            <div class="row">
-              <div class="col-sm-12">
-                <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
-              </div>
-            </div>
-            <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
-          <% end %>
+<!-- comment section -->
+<div class="section-title-wrapper style-1 v1 mt-30" id="divAddComment">
+  <h3 class="section-title left">
+    <span>コメント</span>
+  </h3>
+</div>
+<%= form_with(model:[guitar, guitar_comment], local: true) do |f| %>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= f.text_area :comment, rows:'5', class: "form-control",placeholder: "コメントをここに" %>
+    </div>
+  </div>
+  <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+<% end %>
