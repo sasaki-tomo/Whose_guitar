@@ -46,7 +46,7 @@
 					</td>
 					<td><%= link_to guitar.title, guitar_path(guitar), class: "guitar_#{guitar.id}" %></td>
 					<td><%= guitar.body %></td>
-					<%= render 'books/favorites', guitar: guitar%>
+					<%= render partial: 'guitars/favorites', locals:{ guitar: guitar, guitar_comment: GuitarComment.new } %>
 				    
 				    
 				    <td>
